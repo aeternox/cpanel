@@ -1,4 +1,5 @@
 <?php
+include("constants.php");
 return array(
 	// Example server configuration. You may have more arrays like this one to
 	// specify multiple server groups (however they should share the same login
@@ -13,10 +14,10 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => getenv("AETERNOX_DB_IP"),
-			'Username'   => getenv("AETERNOX_ID"),
-			'Password'   => getenv("AETERNOX_PASSWORD"),
-			'Database'   => getenv("AETERNOX_DB_SERVER"),
+			'Hostname'   => $AETERNOX_DB_IP,
+			'Username'   => $AETERNOX_ID,
+			'Password'   => $AETERNOX_PASSWORD,
+			'Database'   => $AETERNOX_DB_SERVER,
 			'Persistent' => true,
 			'Timezone'   => '+08:00' // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
@@ -34,19 +35,19 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => getenv("AETERNOX_DB_IP"),
-			'Username'   => getenv("AETERNOX_ID"),
-			'Password'   => getenv("AETERNOX_PASSWORD"),
-			'Database'   => getenv("AETERNOX_DB_LOG"),
+			'Hostname'   => $AETERNOX_DB_IP,
+			'Username'   => $AETERNOX_ID,
+			'Password'   => $AETERNOX_PASSWORD,
+			'Database'   => $AETERNOX_DB_LOGS,
 			'Persistent' => true,
 			'Timezone'   => '+08:00' // Possible values is as described in the comment in DbConfig.
 		),
 		// Web server configuration.
 		'WebDbConfig'    => array(
-			'Hostname'   => getenv("AETERNOX_DB_IP"),
-			'Username'   => getenv("AETERNOX_ID"),
-			'Password'   => getenv("AETERNOX_PASSWORD"),
-			'Database'   => getenv("AETERNOX_DB_LOG"),
+			'Hostname'   => $AETERNOX_DB_IP,
+			'Username'   => $AETERNOX_ID,
+			'Password'   => $AETERNOX_PASSWORD,
+			'Database'   => $AETERNOX_DB_SERVER,
 			'Persistent' => true
 		),
 		// Login server configuration.
