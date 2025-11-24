@@ -3,8 +3,8 @@
 // the default, and should be changed as needed.
 return array(
 	'ServerAddress'				=> 'aeternox.gg',				// This value is the hostname:port under which Flux runs. (e.g., example.com or example.com:80)
-	'BaseURI'					=> 'cpanel',						// The base URI is the base web root on which your application lies.
-	'ForceHTTPS'				=> true,					// By default use HTTPS, you should only use HTTP, if you have no certificate available (Note: You may want to visit https://letsencrypt.org)
+	'BaseURI'					=> '',						// The base URI is the base web root on which your application lies.
+	'ForceHTTPS'				=> false,					// By default use HTTPS, you should only use HTTP, if you have no certificate available (Note: You may want to visit https://letsencrypt.org)
 	'InstallerPassword'			=> $_ENV["AETERNOX_PASSWORD"],		// Installer/updater password.
 	'RequireOwnership'			=> true,					// Require the executing user to be owner of the FLUX_ROOT/data/ directory tree? (Better for security)
 															// WARNING: This will be mostly IGNORED on non-POSIX-compliant OSes (e.g. Windows).
