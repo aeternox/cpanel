@@ -4,7 +4,7 @@ return array(
 	// specify multiple server groups (however they should share the same login
 	// server whilst they are allowed to have multiple char/map pairs).
 	array(
-		'ServerName'     => 'FluxRO',
+		'ServerName'     => 'Aeternox',
 		// Global database configuration (excludes logs database configuration).
 		'DbConfig'       => array(
 			//'Socket'     => '/tmp/mysql.sock',
@@ -13,12 +13,12 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => $_ENV["AETERNOX_DB_IP"],
+			'Username'   => $_ENV["AETERNOX_ID"],
+			'Password'   => $_ENV["AETERNOX_PASSWORD"],
+			'Database'   => $_ENV["AETERNOX_DB_SERVER"],
 			'Persistent' => true,
-			'Timezone'   => null // Example: '+0:00' is UTC.
+			'Timezone'   => '+08:00' // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
 			// "The value can be given as a string indicating an offset from UTC, such as '+10:00' or '-6:00'."
 			// "The value can be given as a named time zone, such as 'Europe/Helsinki', 'US/Eastern', or 'MET'." (see below continuation!)
@@ -34,19 +34,19 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => $_ENV["AETERNOX_DB_IP"],
+			'Username'   => $_ENV["AETERNOX_ID"],
+			'Password'   => $_ENV["AETERNOX_PASSWORD"],
+			'Database'   => $_ENV["AETERNOX_DB_LOG"],
 			'Persistent' => true,
-			'Timezone'   => null // Possible values is as described in the comment in DbConfig.
+			'Timezone'   => '+08:00' // Possible values is as described in the comment in DbConfig.
 		),
 		// Web server configuration.
 		'WebDbConfig'    => array(
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => $_ENV["AETERNOX_DB_IP"],
+			'Username'   => $_ENV["AETERNOX_ID"],
+			'Password'   => $_ENV["AETERNOX_PASSWORD"],
+			'Database'   => $_ENV["AETERNOX_DB_LOG"],
 			'Persistent' => true
 		),
 		// Login server configuration.
@@ -60,8 +60,8 @@ return array(
 		),
 		'CharMapServers' => array(
 			array(
-				'ServerName'      => 'FluxRO',
-				'Renewal'         => true,
+				'ServerName'      => 'Aeternox',
+				'Renewal'         => false,
 				'MaxCharSlots'    => 9,
 				'DateTimezone'    => null, // Specifies game server's timezone for this char/map pair. (See: http://php.net/timezones)
 				//'ResetDenyMaps'   => 'sec_pri', // Defaults to 'sec_pri'. This value can be an array of map names.
