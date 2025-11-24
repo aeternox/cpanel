@@ -1,5 +1,5 @@
 <?php
-include("constants.php");
+require "constants.php";
 return array(
 	// Example server configuration. You may have more arrays like this one to
 	// specify multiple server groups (however they should share the same login

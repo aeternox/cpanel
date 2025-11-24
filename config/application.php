@@ -1,7 +1,7 @@
 <?php
 // This is the application configuration file. All values have been set to
 // the default, and should be changed as needed.
-include("constants.php");
+require "constants.php";
 return array(
 	'ServerAddress'				=> 'aeternox.gg',				// This value is the hostname:port under which Flux runs. (e.g., example.com or example.com:80)
 	'BaseURI'					=> '',						// The base URI is the base web root on which your application lies.
