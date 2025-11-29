@@ -2,13 +2,13 @@
 
 // MAIN
 $AETERNOX_SERVER = "127.0.0.1";
-$AETERNOX_PASSWORD = "ragnarok";
+$AETERNOX_ID = "aeternox";
+$AETERNOX_PASSWORD = "aeternox";
 
 // DB
 $AETERNOX_DB_IP = "127.0.0.1";
 $AETERNOX_DB_SERVER = "ragnarok";
 $AETERNOX_DB_LOGS = "ragnarok";
-$AETERNOX_ID = "ragnarok";
 
 // SMTP
 $AETERNOX_EMAIL_CONFIRM = false;
