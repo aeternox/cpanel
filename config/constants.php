@@ -1,0 +1,24 @@
+<?php
+
+// MAIN
+$AETERNOX_SERVER = "127.0.0.1";
+$AETERNOX_PASSWORD = "ragnarok";
+
+// DB
+$AETERNOX_DB_IP = "127.0.0.1";
+$AETERNOX_DB_SERVER = "ragnarok";
+$AETERNOX_DB_LOGS = "ragnarok";
+$AETERNOX_ID = "ragnarok";
+
+// SMTP
+$AETERNOX_EMAIL_CONFIRM = false;
+$AETERNOX_EMAIL = "dev@aeternox.gg";
+$AETERNOX_SMTP_HOST = null;
+$AETERNOX_SMTP_PORT = null;
+$AETERNOX_SMTP_PASSWORD = null;
+
+// MISC
+$AETERNOX_DISCORD_WEBHOOK_URL = "";
+$AETERNOX_TINY_MCE_API_KEY = "";
+
+?>

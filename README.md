@@ -4,15 +4,11 @@ control panel and homepage of aeternox private server.
 
 ### usage
 
-create `config/constants.php` file with sensitive data:
+untrack `config/constants.php` from git so changes will be ignored:
 
-```php
-<?php
-$AETERNOX_DB_IP = "<db-ip>"
-$AETERNOX_DB_SERVER = "<server-db-name>"
-$AETERNOX_DB_LOGS = "<logs-db-name>"
-$AETERNOX_DB_ID = "<db-user>"
-$AETERNOX_PASSWORD = "<db-pass>"
-?>
 ```
+git update-index --assume-unchanged config/constants.php
+```
+
+then update the values in `config/constants.php`, or leave it as-is if you want to run locally.
 

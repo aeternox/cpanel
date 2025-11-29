@@ -52,7 +52,7 @@ return array(
 		),
 		// Login server configuration.
 		'LoginServer'    => array(
-			'Address'  => '127.0.0.1',
+			'Address'  => $AETERNOX_DB_IP,
 			'Port'     => 6900,
 			'UseMD5'   => false,
 			'NoCase'   => true, // rA account case-sensitivity; Default: Case-INsensitive (true).
@@ -113,11 +113,11 @@ return array(
 					'MvpItemMode' => 0,
 				),
 				'CharServer'      => array(
-					'Address'     => '127.0.0.1',
+					'Address'     => $AETERNOX_DB_IP,
 					'Port'        => 6121
 				),
 				'MapServer'       => array(
-					'Address'     => '127.0.0.1',
+					'Address'     => $AETERNOX_DB_IP,
 					'Port'        => 5121
 				),
 				// -- WoE days and times --
