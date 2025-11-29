@@ -1,7 +1,7 @@
 <?php
 
 // MAIN
-$AETERNOX_SERVER = "127.0.0.1";
+$AETERNOX_SERVER = "localhost";
 $AETERNOX_ID = "aeternox";
 $AETERNOX_PASSWORD = "aeternox";
 

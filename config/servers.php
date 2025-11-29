@@ -63,8 +63,8 @@ return array(
 			array(
 				'ServerName'      => 'Aeternox',
 				'Renewal'         => false,
-				'MaxCharSlots'    => 9,
-				'DateTimezone'    => null, // Specifies game server's timezone for this char/map pair. (See: http://php.net/timezones)
+				'MaxCharSlots'    => 15,
+				'DateTimezone'    => 'Asia/Singapore', // Specifies game server's timezone for this char/map pair. (See: http://php.net/timezones)
 				//'ResetDenyMaps'   => 'sec_pri', // Defaults to 'sec_pri'. This value can be an array of map names.
 				//'Database'        => 'ragnarok', // Defaults to DbConfig.Database
 				'ExpRates' => array(

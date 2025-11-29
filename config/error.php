@@ -7,7 +7,7 @@
 // your MySQL user and password when unable to connect. Please keep it at false
 // in a production environment.
 
-$adminEmail      = 'contact@aeternox.gg'; // Administrator e-mail address.
+$adminEmail      = 'dev@aeternox.gg'; // Administrator e-mail address.
 $errorFile       = 'error.php';       // Error file to render.
 $showExceptions  = false;              // Whether or not to show exceptions (only applies to error.php)
 ?>
