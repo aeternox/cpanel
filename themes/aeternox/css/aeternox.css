@@ -50,13 +50,13 @@
     font-weight: 900;
 }
 
-#ax-server-status > div {
+.ax-status-box {
     text-align: right;
     width: 200px;
     margin: 5px;
 }
 
-#ax-server-status > div > img {
+.ax-status-box > img {
     width: 15px;
     vertical-align: text-bottom;
 }
@@ -100,6 +100,11 @@
 }
 
 .ax-nav-item:hover {
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.ax-nav-active {
     border-radius: 5px;
     background-color: rgba(0,0,0,0.3);
 }

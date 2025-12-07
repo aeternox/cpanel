@@ -163,10 +163,10 @@
 						$charServerImg = $charServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
 						$mapServerImg = $mapServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
 					?>
-					<div>LOGIN <img src="<?php echo $loginServerImg; ?>" alt="<?php echo statusMessage($loginServerUp) ?>" title="<?php echo statusMessage($loginServerUp) ?>" /></div>
-					<div>CHAR <img src="<?php echo $charServerImg; ?>" alt="<?php echo statusMessage($charServerImg) ?>" title="<?php echo statusMessage($charServerUp) ?>" /></div>
-					<div>MAP <img src="<?php echo $mapServerImg; ?>" alt="<?php echo statusMessage($mapServerImg) ?>" title="<?php echo statusMessage($mapServerUp) ?>" /></div>
-					<div><span id="ax-player-count"><?php echo intval($res ? $res->players_online : 0); ?></span> <img src="<?php echo $this->themePath('img/players.gif'); ?>" alt="Players Online" title="Players Online" /></div>
+					<div class="ax-status-box">LOGIN <img src="<?php echo $loginServerImg; ?>" alt="<?php echo statusMessage($loginServerUp) ?>" title="<?php echo statusMessage($loginServerUp) ?>" /></div>
+					<div class="ax-status-box">CHAR <img src="<?php echo $charServerImg; ?>" alt="<?php echo statusMessage($charServerImg) ?>" title="<?php echo statusMessage($charServerUp) ?>" /></div>
+					<div class="ax-status-box">MAP <img src="<?php echo $mapServerImg; ?>" alt="<?php echo statusMessage($mapServerImg) ?>" title="<?php echo statusMessage($mapServerUp) ?>" /></div>
+					<a href="/?module=server&action=stats"><div class="ax-status-box"><span id="ax-player-count"><?php echo intval($res ? $res->players_online : 0); ?></span> <img src="<?php echo $this->themePath('img/players.gif'); ?>" alt="Players Online" title="Players Online" /></div></a>
 				</div>
 				<div id="ax-nav">
 					<?php
@@ -175,36 +175,60 @@
 								"link" => "/?module=news",
 								"img" => $this->themePath('img/nav-news.gif'),
 								"label" => "NEWS",
+								"active-path" => array(
+									"module" => "news"
+								),
 							),
 							array(
 								"link" => "/?module=pages&action=content&path=downloads",
 								"img" => $this->themePath('img/nav-downloads.gif'),
 								"label" => "DOWNLOAD",
+								"active-path" => array(
+									"module" => "pages",
+									"action" => "content",
+									"path" => "downloads",
+								),
 							),
 							array(
 								"link" => "/?module=server&action=stats",
 								"img" => $this->themePath('img/nav-stats.gif'),
 								"label" => "STATS",
+								"active-path" => array(
+									"module" => "server",
+									"action" => "stats",
+								),
 							),
 							array(
 								"link" => "/?module=ranking&action=character",
 								"img" => $this->themePath('img/nav-ranking.gif'),
 								"label" => "RANKING",
+								"active-path" => array(
+									"module" => "ranking",
+								),
 							),
 							array(
 								"link" => "/?module=woe",
 								"img" => $this->themePath('img/nav-woe.gif'),
 								"label" => "WOE",
+								"active-path" => array(
+									"module" => "woe",
+								),
 							),
 							array(
 								"link" => "/?module=item",
 								"img" => $this->themePath('img/nav-items.gif'),
 								"label" => "ITEMS",
+								"active-path" => array(
+									"module" => "item",
+								),
 							),
 							array(
 								"link" => "/?module=monster",
 								"img" => $this->themePath('img/nav-mobs.gif'),
 								"label" => "MOBS",
+								"active-path" => array(
+									"module" => "monster",
+								),
 							),
 						);
 
@@ -214,18 +238,27 @@
 								"link" => "/?module=history",
 								"img" => $this->themePath('img/nav-history.gif'),
 								"label" => "HISTORY",
+								"active-path" => array(
+									"module" => "history",
+								),
 							),
 							array(
 								"showLoggedIn" => true,
 								"link" => "/?module=servicedesk",
 								"img" => $this->themePath('img/nav-support.gif'),
 								"label" => "SUPPORT",
+								"active-path" => array(
+									"module" => "servicedesk",
+								),
 							),
 							array(
 								"showLoggedIn" => true,
 								"link" => "/?module=account&action=view",
 								"img" => $this->themePath('img/nav-account.gif'),
 								"label" => "ACCOUNT",
+								"active-path" => array(
+									"module" => "account",
+								),
 							),
 							array(
 								"showLoggedIn" => true,
@@ -238,6 +271,10 @@
 								"link" => "/?module=account&action=create",
 								"img" => $this->themePath('img/nav-register.gif'),
 								"label" => "REGISTER",
+								"active-path" => array(
+									"module" => "account",
+									"action" => "create",
+								),
 							),
 							array(
 								"showLoggedIn" => false,
@@ -249,7 +286,20 @@
 					?>
 					<div id="ax-nav-left">
 						<?php foreach($navsLeft as $nav): ?>
-							<div class="ax-nav-item">
+							<?php
+								$isActive = true;
+								if (array_key_exists("active-path", $nav)) {
+									foreach($nav["active-path"] as $key => $value) {
+										if ($params->get($key) != $value) {
+											$isActive = false;
+											break;
+										}
+									}
+								} else {
+									$isActive = false;
+								}
+							?>
+							<div class="ax-nav-item <?php echo $isActive ? "ax-nav-active" : "" ?>">
 								<a href="<?php echo $nav["link"]; ?>">
 									<div><img src="<?php echo $nav["img"]; ?>"></div>
 									<div class="ax-nav-label"><?php echo $nav["label"]; ?></div>
@@ -260,8 +310,21 @@
 					
 					<div id="ax-nav-right">
 						<?php foreach($navsRight as $nav): ?>
+							<?php
+								$isActive = true;
+								if (array_key_exists("active-path", $nav)) {
+									foreach($nav["active-path"] as $key => $value) {
+										if ($params->get($key) != $value) {
+											$isActive = false;
+											break;
+										}
+									}
+								} else {
+									$isActive = false;
+								}
+							?>
 							<?php if($session->isLoggedIn() == $nav["showLoggedIn"]): ?>
-								<div class="ax-nav-item">
+								<div class="ax-nav-item <?php echo $isActive ? "ax-nav-active" : "" ?>">
 									<a href="<?php echo $nav["link"]; ?>">
 										<div><img src="<?php echo $nav["img"]; ?>"></div>
 										<div class="ax-nav-label"><?php echo $nav["label"]; ?></div>
