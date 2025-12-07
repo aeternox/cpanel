@@ -21,28 +21,12 @@ final class AccountLevel {
 			'name'  => "Player",
 			'level' => AccountLevel::NORMAL
 		),
-		1 => array(
-			'name'  => "Super Player",
-			'level' => AccountLevel::NORMAL
-		),
-		2 => array(
-			'name'  => "Support",
-			'level' => AccountLevel::LOWGM
-		),
-		3 => array(
-			'name'  => "Script Manager",
-			'level' => AccountLevel::LOWGM
-		),
-		4 => array(
-			'name'  => "Event Manager",
-			'level' => AccountLevel::LOWGM
-		),
-		5 => array(
-			'name'  => "VIP",
-			'level' => AccountLevel::NORMAL
-		),
 		10 => array(
-			'name'  => "Law Enforcement",
+			'name'  => "Tester",
+			'level' => AccountLevel::NORMAL
+		),
+		20 => array(
+			'name'  => "Support",
 			'level' => AccountLevel::HIGHGM
 		),
 		99 => array(

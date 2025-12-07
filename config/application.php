@@ -100,8 +100,8 @@ return array(
 	'MoneyThousandsSymbol'		=> ',',						// (Visual) Thousandths place separator (a period in European currencies).
 	'MoneyDecimalSymbol'		=> '.',						// (Visual) Decimal separator (a comma in European currencies).
 	'AcceptDonations'			=> false,					// Whether or not to accept donations.
-	'PayPalIpnUrl'				=> 'www.paypal.com',		// The ipnpb.paypal.com and ipnpb.sandbox.paypal.com endpoints only accept HTTPS connections. If you currently use www.paypal.com, you should move to ipnpb.paypal.com when you update your code to use HTTPS.
-	'PayPalBusinessEmail'		=> 'admin@localhost',		// Enter the e-mail under which you have registered your business account.
+	'PayPalIpnUrl'				=> $AETERNOX_PAYPAL_IPN_URL,		// The ipnpb.paypal.com and ipnpb.sandbox.paypal.com endpoints only accept HTTPS connections. If you currently use www.paypal.com, you should move to ipnpb.paypal.com when you update your code to use HTTPS.
+	'PayPalBusinessEmail'		=> $AETERNOX_PAYPAL_EMAIL,		// Enter the e-mail under which you have registered your business account.
 	'PayPalReceiverEmails'		=> array(					// These are the receiver e-mail addresses who are allowed to receive payment.
 		//'admin2@localhost',								// -- This array may be empty if you only use one e-mail
 		//'admin3@localhost'								// -- because your Business Email is also checked.
@@ -123,7 +123,7 @@ return array(
 		'91.243.72.0/23'
 	),
 	'GStorageLeaderOnly'		=> false,					// Only allow guild leader to view guild storage rather than all members?
-	'DivorceKeepChild'			=> false,					// Keep child after divorce?
+	'DivorceKeepChild'			=> true,					// Keep child after divorce?
 	'DivorceKeepRings'			=> false,					// Keep wedding rings after divorce?
 	'IpWhitelistPattern'		=>							// PCRE Format Pattern. It's recommended you add your gameserver, webserver and server owner's IPs here.
 		'(127\.0\.0\.1|0(\.[0\*]){3})',						// WARNING: This string isn't escaped so be careful which chars you use!
@@ -253,7 +253,8 @@ return array(
 	// their login status.
 	'MenuItems'		=> array(
 		'MainMenuLabel'		=> array(
-			'HomeLabel'			=> array('module' => 'main'),
+			'HomeLabel'			=> array('module' => 'pages','action'=>'content','param'=>array('path'=>'server-intro')),
+			//'HomeLabel'			=> array('module' => 'main'),
 			//'ForumLabel'		=> array('exturl' => 'http://www.fluxro.com/community'),	// External forum link
 			//'ForumLabel'		=> array('module' => 'forums'), 						// Built-in forum link
 			'NewsLabel'			=> array('module' => 'news'),
@@ -289,10 +290,12 @@ return array(
 			'ItemDatabaseLabel'	=> array('module' => 'item'),
 			'MobDatabaseLabel'	=> array('module' => 'monster'),
 		),
-		//'SocialLabel'		=> array(
-		//	'JoinUsInFacebookLabel'	=> array('exturl' => 'https://www.facebook.com/<change_me>'),
-		//	'RateUsOnRMSLabel'		=> array('exturl' => '<link_to_RMS>'),
-		//),
+		'SocialLabel'		=> array(
+			'Discord'			=> array('exturl' => 'https://discord.gg/eKdFttVXVX'),
+			'Facebook'			=> array('exturl' => 'https://facebook.com/aeternox'),
+			'RateUsOnRMSLabel'		=> array('exturl' => 'https://ratemyserver.net/index.php?page=detailedlistserver&serid=23168&url_sname=Aeternox'),
+			'Github'			=> array('exturl' => 'https://github.aeternox.gg'),
+		),
 		'Service Desk'	=> array(
 			'ServiceDeskLabel'	=> array('module' => 'servicedesk', 'action' => 'staffindex'),
 		),

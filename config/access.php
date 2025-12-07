@@ -131,11 +131,11 @@ return array(
 			'txnview'		=> AccountLevel::ADMIN			
 		),
 		'ipban'		=> array(
-			'index'			=> AccountLevel::ADMIN,
-			'add'			=> AccountLevel::ADMIN,
-			'unban'			=> AccountLevel::ADMIN,
-			'edit'			=> AccountLevel::ADMIN,
-			'remove'		=> AccountLevel::ADMIN
+			'index'			=> AccountLevel::HIGHGM,
+			'add'			=> AccountLevel::HIGHGM,
+			'unban'			=> AccountLevel::HIGHGM,
+			'edit'			=> AccountLevel::HIGHGM,
+			'remove'		=> AccountLevel::HIGHGM
 		),
 		'service'	=> array(
 			'tos'			=> AccountLevel::ANYONE
@@ -165,19 +165,19 @@ return array(
 			'passreset'		=> AccountLevel::NORMAL
 		),
 		'pages'		=> array(
-			'index' 		=> AccountLevel::ADMIN,
-			'add' 			=> AccountLevel::ADMIN,
-			'delete' 		=> AccountLevel::ADMIN,
-			'edit' 			=> AccountLevel::ADMIN,
+			'index' 		=> AccountLevel::HIGHGM,
+			'add' 			=> AccountLevel::HIGHGM,
+			'delete' 		=> AccountLevel::HIGHGM,
+			'edit' 			=> AccountLevel::HIGHGM,
 			'content' 		=> AccountLevel::ANYONE,
 		),
 		'news'		=> array(
 			'index' 		=>  AccountLevel::ANYONE,
 			'view' 			=>  AccountLevel::ANYONE,
-			'manage'		=>  AccountLevel::ADMIN,
-			'add' 			=>  AccountLevel::ADMIN,
-			'edit' 			=>  AccountLevel::ADMIN,
-			'delete' 		=> AccountLevel::ADMIN,
+			'manage'		=>  AccountLevel::HIGHGM,
+			'add' 			=>  AccountLevel::HIGHGM,
+			'edit' 			=>  AccountLevel::HIGHGM,
+			'delete' 		=> AccountLevel::HIGHGM,
 		),
 		'servicedesk'=> array(
 			'index'			=> AccountLevel::NORMAL,

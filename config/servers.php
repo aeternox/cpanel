@@ -17,7 +17,7 @@ return array(
 			'Hostname'   => $AETERNOX_DB_IP,
 			'Username'   => $AETERNOX_ID,
 			'Password'   => $AETERNOX_PASSWORD,
-			'Database'   => $AETERNOX_DB_SERVER,
+			'Database'   => $AETERNOX_DB_DB,
 			'Persistent' => true,
 			'Timezone'   => '+08:00' // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
@@ -47,7 +47,7 @@ return array(
 			'Hostname'   => $AETERNOX_DB_IP,
 			'Username'   => $AETERNOX_ID,
 			'Password'   => $AETERNOX_PASSWORD,
-			'Database'   => $AETERNOX_DB_SERVER,
+			'Database'   => $AETERNOX_DB_WEB,
 			'Persistent' => true
 		),
 		// Login server configuration.
@@ -57,7 +57,7 @@ return array(
 			'UseMD5'   => false,
 			'NoCase'   => true, // rA account case-sensitivity; Default: Case-INsensitive (true).
 			'GroupID'  => 0,    // Default account group ID during registration.
-			//'Database' => 'ragnarok'
+			'Database' => $AETERNOX_DB_LOGIN
 		),
 		'CharMapServers' => array(
 			array(
