@@ -13,7 +13,7 @@ return array(
 	'DefaultCharMapServer'		=> null,
 	'DefaultLanguage'			=> 'en_us',					// Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
 	'SiteTitle'					=> 'Aeternox',	// This value is only used if the theme decides to use it.
-	'ThemeName'					=> array('aeternox', 'default'), // Names of the themes you would like list for use in the footer. Themes are in FLUX_ROOT/themes.
+	'ThemeName'					=> array('aeternox'), // Names of the themes you would like list for use in the footer. Themes are in FLUX_ROOT/themes.
 	'ScriptTimeLimit'			=> 0,						// Script execution time limit. Specifies (in seconds) how long a page should run before timing out. (0 means forever)
 	'MissingEmblemBMP'			=> 'empty.bmp',				//
 	'ItemIconNameFormat'		=> '%d.png',				// The filename format for item icons (defaults to {itemid}.png).
@@ -237,7 +237,7 @@ return array(
 	'SDCreditReward'			=> 10,						// Number of credits to award account.
 
 // Discord Webhooks
-	'DiscordUseWebhook'			=> true,
+	'DiscordUseWebhook'			=> $AETERNOX_DISCORD_WEBHOOK_URL != null,
 	'DiscordWebhookURL'			=> $AETERNOX_DISCORD_WEBHOOK_URL,
     'DiscordSendOnRegister'     => true, // Sends a channel message when someone registers
     'DiscordSendOnNewTicket'    => true, // Sends a channel message when someone submits a new ticket to the Service Desk
