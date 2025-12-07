@@ -58,7 +58,13 @@
 
 #ax-server-status > div > img {
     width: 15px;
-    vertical-align: middle;
+    vertical-align: text-bottom;
+}
+
+#ax-player-count {
+    color: #02ff00;
+    font-size: medium;
+    text-shadow: 1px 1px 1px black;
 }
 
 #ax-content {

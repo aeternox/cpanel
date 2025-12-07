@@ -150,8 +150,14 @@
 						}
 
 						$loginServerUp = Flux::$loginAthenaGroupRegistry["Aeternox"]->loginServer->isUp();
-						$charServerUp = Flux::$loginAthenaGroupRegistry["Aeternox"]->athenaServers[0]->charServer->isUp();
-						$mapServerUp = Flux::$loginAthenaGroupRegistry["Aeternox"]->athenaServers[0]->mapServer->isUp();
+						$athenaServer = Flux::$loginAthenaGroupRegistry["Aeternox"]->athenaServers[0];
+						$charServerUp = $athenaServer->charServer->isUp();
+						$mapServerUp = $athenaServer->mapServer->isUp();
+
+						$sql = "SELECT COUNT(char_id) AS players_online FROM {$athenaServer->charMapDatabase}.char WHERE `online` > '0'";
+						$sth = Flux::$loginAthenaGroupRegistry["Aeternox"]->connection->getStatement($sql);
+						$sth->execute();
+						$res = $sth->fetch();
 
 						$loginServerImg = $loginServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
 						$charServerImg = $charServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
@@ -160,6 +166,7 @@
 					<div>LOGIN <img src="<?php echo $loginServerImg; ?>" alt="<?php echo statusMessage($loginServerUp) ?>" title="<?php echo statusMessage($loginServerUp) ?>" /></div>
 					<div>CHAR <img src="<?php echo $charServerImg; ?>" alt="<?php echo statusMessage($charServerImg) ?>" title="<?php echo statusMessage($charServerUp) ?>" /></div>
 					<div>MAP <img src="<?php echo $mapServerImg; ?>" alt="<?php echo statusMessage($mapServerImg) ?>" title="<?php echo statusMessage($mapServerUp) ?>" /></div>
+					<div><span id="ax-player-count"><?php echo intval($res ? $res->players_online : 0); ?></span> <img src="<?php echo $this->themePath('img/players.gif'); ?>" alt="Players Online" title="Players Online" /></div>
 				</div>
 				<div id="ax-nav">
 					<?php
