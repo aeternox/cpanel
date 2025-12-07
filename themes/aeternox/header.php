@@ -131,7 +131,7 @@
 		<div id="header">
 			<div id="ax-header-content">
 				<div id="ax-header-logo">
-					<a href="<?php echo $this->basePath ?>"><img src="<?php echo $this->themePath('img/logo.png') ?>" /></a>
+					<a href="<?php echo $this->basePath ?>"><img src="<?php echo $this->themePath('img/logo.webp') ?>" /></a>
 				</div>
 				<div id="ax-header-info">
 					<div>1x / 1x / 1x</div>
