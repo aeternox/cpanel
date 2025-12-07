@@ -21,7 +21,6 @@
 /data/tmp/emblems
 
 # Non-Default Themes
-/themes/*
 !/themes/default
 !/themes/bootstrap
 !/themes/installer
