@@ -103,3 +103,9 @@
     font-size: 8px;
     font-weight: 900;
 }
+
+#ax-footer {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
