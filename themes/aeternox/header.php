@@ -281,6 +281,10 @@
 								"link" => "/?module=account&action=login",
 								"img" => $this->themePath('img/nav-login.gif'),
 								"label" => "LOGIN",
+								"active-path" => array(
+									"module" => "account",
+									"action" => "login",
+								),
 							),
 						);
 					?>
