@@ -172,11 +172,13 @@
 					<?php
 						$navsLeft = array(
 							array(
-								"link" => "/?module=news",
-								"img" => $this->themePath('img/nav-news.gif'),
-								"label" => "NEWS",
+								"link" => "/?module=pages&action=content&path=rules",
+								"img" => $this->themePath('img/nav-rules.gif'),
+								"label" => "RULES",
 								"active-path" => array(
-									"module" => "news"
+									"module" => "pages",
+									"action" => "content",
+									"path" => "rules",
 								),
 							),
 							array(
