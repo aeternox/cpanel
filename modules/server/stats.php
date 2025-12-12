@@ -93,15 +93,22 @@ $info['zeny'] += $sth->fetch()->total;
 
 // Job classes.
 $sql = "SELECT `char`.class, COUNT(`char`.class) AS total FROM {$server->charMapDatabase}.`char` ";
+if (Flux::config('HideGMStats')) {
+	$sql .= "LEFT JOIN {$server->loginDatabase}.login AS login ON login.account_id = `char`.account_id WHERE login.group_id < 99 ";
+}
 if (Flux::config('HideTempBannedStats')) {
-	$sql .= "LEFT JOIN {$server->loginDatabase}.login ON login.account_id = `char`.account_id ";
-	$sql .= "WHERE login.unban_time <= UNIX_TIMESTAMP() ";
+	if (Flux::config('HideGMStats')) {
+		$sql .= "AND login.unban_time <= UNIX_TIMESTAMP() ";
+	} else {
+		$sql .= "LEFT JOIN {$server->loginDatabase}.login AS login ON login.account_id = `char`.account_id ";
+		$sql .= "WHERE login.unban_time <= UNIX_TIMESTAMP() ";
+	}
 }
 if (Flux::config('HidePermBannedStats')) {
-	if (Flux::config('HideTempBannedStats')) {
-		$sql .= " AND login.state != 5 ";
+	if (Flux::config('HideGMStats') || Flux::config('HideTempBannedStats')) {
+		$sql .= "AND login.state != 5 ";
 	} else {
-		$sql .= "LEFT JOIN {$server->loginDatabase}.login ON login.account_id = `char`.account_id ";
+		$sql .= "LEFT JOIN {$server->loginDatabase}.login AS login ON login.account_id = `char`.account_id ";
 		$sql .= "WHERE login.state != 5 ";
 	}
 }

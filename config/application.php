@@ -200,6 +200,7 @@ return array(
 	'HideTempBannedSmithRank'	=> false,					// Hide temporarily banned characters from ranking.
 	'HidePermBannedSmithRank'	=> true,					// Hide permanently banned characters from ranking.
 
+	'HideGMStats'				=> true,					// Hide GM account characters from statistics
 	'HideTempBannedStats'		=> false,					// Hide temporarily banned accounts from statistics.
 	'HidePermBannedStats'		=> true,					// Hide permanently banned accounts from statistics.
 
