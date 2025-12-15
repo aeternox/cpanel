@@ -2,7 +2,7 @@
 <h2><?php echo htmlspecialchars(Flux::message('AccountCreateHeading')) ?></h2>
 <p><?php printf(htmlspecialchars(Flux::message('AccountCreateInfo')), '<a href="'.$this->url('service', 'tos').'">'.Flux::message('AccountCreateTerms').'</a>') ?></p>
 <?php if (Flux::config('RequireEmailConfirm')): ?>
-<p><strong>Note:</strong> You will need to provide a working e-mail address to confirm your account before you can log-in.</p>
+<p style="color: red;"><strong>Note:</strong> You will need to provide a working e-mail address to confirm your account before you can log-in.</p>
 <?php endif ?>
 <p><strong>Note:</strong> <?php echo sprintf("Your password must be between %d and %d characters.", Flux::config('MinPasswordLength'), Flux::config('MaxPasswordLength')) ?></p>
 <?php if (Flux::config('PasswordMinUpper') > 0): ?>
