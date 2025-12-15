@@ -143,6 +143,9 @@
 					<a id="ax-link" href="https://facebook.com/aeternox" target="_blank"><img class="ax-link-img" alt="Facebook" title="Facebook" width="25px" src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" /></a>
 					<a id="ax-link" href="https://github.aeternox.gg" target="_blank"><img class="ax-link-img" alt="Github" title="Github" width="25px" src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png" /></a>
 				</div>
+				<div id="ax-header-review">
+					<a href="https://ratemyserver.net/index.php?page=detailedlistserver&serid=23168&url_sname=Aeternox" target="_blank">Review us on RMS!</a>
+				</div>
 				<div id="ax-server-status">
 					<?php
 						function statusMessage($isUp) {

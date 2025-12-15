@@ -42,6 +42,11 @@
     height: 50px;
 }
 
+#ax-header-review {position: absolute;
+    left: 40px;
+    top: 200px;
+}
+
 #ax-server-status {
     position: absolute;
     right: 60px;
