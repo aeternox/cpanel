@@ -152,15 +152,31 @@
 							return $isUp ? "Online" : "Offline";
 						}
 
-						$loginServerUp = Flux::$loginAthenaGroupRegistry["Aeternox"]->loginServer->isUp();
-						$athenaServer = Flux::$loginAthenaGroupRegistry["Aeternox"]->athenaServers[0];
+						$serverGroup = Flux::$loginAthenaGroupRegistry["Aeternox"];
+						$loginServerUp =$serverGroup->loginServer->isUp();
+						$athenaServer = $serverGroup->athenaServers[0];
 						$charServerUp = $athenaServer->charServer->isUp();
 						$mapServerUp = $athenaServer->mapServer->isUp();
 
 						$sql = "SELECT COUNT(char_id) AS players_online FROM {$athenaServer->charMapDatabase}.char WHERE `online` > '0'";
-						$sth = Flux::$loginAthenaGroupRegistry["Aeternox"]->connection->getStatement($sql);
+						$sth = $serverGroup->connection->getStatement($sql);
 						$sth->execute();
 						$res = $sth->fetch();
+
+						$peakSql = "SELECT * FROM {$serverGroup->loginDatabase}.`cp_onlinepeak` WHERE id = 1";
+						$peakCon = $serverGroup->connection->getStatement($peakSql);
+						$peakCon->execute();
+						$peakRes = $peakCon->fetch();
+
+						$lastPeak = $peakRes ? $peakRes->users : 0;
+						if ($res && $res->players_online > $lastPeak) {
+							$peakSql2 = "REPLACE INTO {$serverGroup->loginDatabase}.`cp_onlinepeak` (id, users, date) VALUES (1, ". $res->players_online .", NOW())";
+							$peakCon2 = $serverGroup->connection->getStatement($peakSql2);
+							$peakCon2->execute();
+							if(Flux::config('DiscordUseWebhook')) {
+								sendtodiscord(Flux::config('DiscordWebhookURL'), 'We have hit our new peak online players of '. $res->players_online . '!');
+							}
+						}
 
 						$loginServerImg = $loginServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
 						$charServerImg = $charServerUp ? $this->themePath('img/status-on.gif') : $this->themePath('img/status-off.gif');
