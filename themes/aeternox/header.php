@@ -158,7 +158,9 @@
 						$charServerUp = $athenaServer->charServer->isUp();
 						$mapServerUp = $athenaServer->mapServer->isUp();
 
-						$sql = "SELECT COUNT(char_id) AS players_online FROM {$athenaServer->charMapDatabase}.char WHERE `online` > '0'";
+						$sql = "SELECT COUNT(char_id) AS players_online FROM {$athenaServer->charMapDatabase}.char ";
+						$sql .= "LEFT JOIN {$serverGroup->loginDatabase}.login AS login ON login.account_id = char.account_id ";
+						$sql .= "WHERE  `online` > '0' AND login.group_id < 99";
 						$sth = $serverGroup->connection->getStatement($sql);
 						$sth->execute();
 						$res = $sth->fetch();
