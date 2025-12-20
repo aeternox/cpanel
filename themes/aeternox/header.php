@@ -213,6 +213,14 @@
 								),
 							),
 							array(
+								"link" => "/?module=donate",
+								"img" => $this->themePath('img/nav-cash.gif'),
+								"label" => "DONATE",
+								"active-path" => array(
+									"module" => "donate",
+								),
+							),
+							array(
 								"link" => "/?module=server&action=stats",
 								"img" => $this->themePath('img/nav-stats.gif'),
 								"label" => "STATS",
